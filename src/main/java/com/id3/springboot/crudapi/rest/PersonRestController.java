@@ -25,17 +25,16 @@ public class PersonRestController {
     }
 
     @GetMapping("/people/{personId}")
-    public Person getPerson(@PathVariable int personId){ // DIKKAT
+    public Person getPerson(@PathVariable Long personId){ // DIKKAT
         Person thePerson = personService.findById(personId);
         if(thePerson == null){
             throw new RuntimeException("person id not found: " + personId);
         }
         return thePerson;
     }
-    
     @PostMapping("/people")
     public Person addPerson(@RequestBody Person person){
-        person.setId(0);
+        person.setId(0L);
         personService.save(person);
         return person;
     }
@@ -47,7 +46,7 @@ public class PersonRestController {
     }
 
     @DeleteMapping("/people/{personId}")
-    public String deletePerson(@PathVariable int personId){
+    public String deletePerson(@PathVariable Long personId){
         Person tempPerson = personService.findById(personId);
         if(tempPerson == null){
             throw new RuntimeException("peron id not found: " + personId);

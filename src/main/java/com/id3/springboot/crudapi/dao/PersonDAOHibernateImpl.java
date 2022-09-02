@@ -30,7 +30,7 @@ public class PersonDAOHibernateImpl implements PersonDAO {
     }
 
     @Override
-    public Person findById(int id) {
+    public Person findById(Long id) {
         Session currentSession = entityManager.unwrap(Session.class);
         Person thePerson = currentSession.get(Person.class, id);
         return thePerson;
@@ -43,7 +43,7 @@ public class PersonDAOHibernateImpl implements PersonDAO {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         Session currentSession = entityManager.unwrap(Session.class);
         Query theQuery = currentSession.createQuery("delete from Person where id=:personId");
         theQuery.setParameter("personId", id);

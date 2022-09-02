@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id", updatable = false, nullable = false)
+    private Long id;
 
     @Column(name="first_name")
     private String firstName;
@@ -28,11 +28,11 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

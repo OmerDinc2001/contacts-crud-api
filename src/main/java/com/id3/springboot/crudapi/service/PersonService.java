@@ -8,9 +8,9 @@ public interface PersonService {
 
     public List<Person> findAll();
 
-    public Person findById(int id);
+    public Person findById(Long id);
 
     public void save(Person person);
 
-    public void deleteById(int id);
+    public void deleteById(Long id);
 }

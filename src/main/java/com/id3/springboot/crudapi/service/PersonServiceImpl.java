@@ -24,7 +24,7 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     @Transactional
-    public Person findById(int id) {
+    public Person findById(Long id) {
         return personDAO.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     @Transactional
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         personDAO.deleteById(id);
     }
 }
